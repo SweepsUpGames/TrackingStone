@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="@dimen/item_height"
+    android:padding="5dp">
 
     <!-- this view reveals when swipe right -->
     <!--  -->
@@ -14,10 +14,10 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_alignParentLeft="true"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:text="Loss" />
     </RelativeLayout>
 
@@ -30,15 +30,15 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:text="Win" />
     </RelativeLayout>
 
     <!-- this is the item front view -->
-    <LinearLayout
+    <RelativeLayout
         android:tag="front"
         android:background="#EBEBEB"
         android:layout_width="match_parent"
@@ -46,17 +46,28 @@
         android:orientation="horizontal"
         android:padding="5dp">
 
+        <!-- <ImageView
+            android:id="@+id/hero_image"
+            android:layout_alignParentStart="true"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"/> -->
+
+        <!-- android:layout_toEndOf="@+id/hero_image" -->
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:singleLine="true"
-            android:textSize="16dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/win_rate"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </LinearLayout>
-</LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

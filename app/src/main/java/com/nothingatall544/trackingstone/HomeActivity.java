@@ -81,10 +81,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void populate() {
-        this.records.add(new MatchUpRecord("Warrior Control", 4, 6));
-        this.records.add(new MatchUpRecord("Warrior Control", 4, 6));
-        this.records.add(new MatchUpRecord("Ramp Druid", 8, 2));
-        this.records.add(new MatchUpRecord("Ramp Druid", 8, 2));
+        this.records.add(new MatchUpRecord("Warrior Control", R.drawable.garrosh_hellscream, 4, 6));
+        this.records.add(new MatchUpRecord("Warrior Control", R.drawable.garrosh_hellscream, 4, 6));
+        this.records.add(new MatchUpRecord("Ramp Druid", R.drawable.malfurion_stormrage, 8, 2));
+        this.records.add(new MatchUpRecord("Ramp Druid", R.drawable.malfurion_stormrage, 8, 2));
     }
 
     private void displaySnackbar(String text, String actionName, View.OnClickListener action) {
