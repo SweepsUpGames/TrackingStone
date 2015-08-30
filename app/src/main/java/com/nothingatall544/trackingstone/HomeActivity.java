@@ -45,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
             public boolean swipeLeft(final MatchUpRecord itemData) {
                 displaySnackbar(itemData.getDeckName() + " defeated", null, null);
                 itemData.win();
+                adapter.notifyItemChanged(records.indexOf(itemData));
                 return true;
             }
 
@@ -52,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
             public boolean swipeRight(MatchUpRecord itemData) {
                 displaySnackbar(itemData.getDeckName() + " won :(", null, null);
                 itemData.loss();
+                adapter.notifyItemChanged(records.indexOf(itemData));
                 return true;
             }
 
