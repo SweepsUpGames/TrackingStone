@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.nothingatall544.trackingstone.matchup.SwipeMatchupAdapter;
 import com.nothingatall544.trackingstone.model.MatchUpRecord;
 import com.nothingatall544.trackingstone.view.MatchUpAdapter;
 
@@ -21,7 +22,7 @@ import co.dift.ui.SwipeToAction;
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    MatchUpAdapter adapter;
+    SwipeMatchupAdapter adapter;
     SwipeToAction swipeToAction;
 
     List<MatchUpRecord> records = new ArrayList<>();
@@ -37,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        adapter = new MatchUpAdapter(this.records);
+        adapter = new SwipeMatchupAdapter(this.records);
         recyclerView.setAdapter(adapter);
 
         swipeToAction = new SwipeToAction(recyclerView, new SwipeToAction.SwipeListener<MatchUpRecord>() {
@@ -70,14 +71,6 @@ public class HomeActivity extends AppCompatActivity {
 
 
         populate();
-
-        // use swipeLeft or swipeRight and the elem position to swipe by code
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                swipeToAction.swipeRight(2);
-            }
-        }, 3000);
     }
 
     private void populate() {

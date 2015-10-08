@@ -14,24 +14,21 @@ import java.util.List;
 
 import co.dift.ui.SwipeToAction;
 
-/**
- * Created by derp on 8/29/2015.
- */
 public class MatchUpAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<MatchUpRecord> mRecords;
-
     public static class ViewHolder extends SwipeToAction.ViewHolder {
         private TextView mDeckName;
         private ImageView mHeroImage;
         private TextView mPercent;
-
         public ViewHolder(View view) {
             super(view);
             mDeckName = (TextView) view.findViewById(R.id.title);
-            //mHeroImage = (ImageView) view.findViewById(R.id.hero_image);
+            mHeroImage = (ImageView) view.findViewById(R.id.hero_image);
             mPercent = (TextView) view.findViewById(R.id.win_rate);
         }
+
     }
+
+    private List<MatchUpRecord> mRecords;
 
     public MatchUpAdapter(List<MatchUpRecord> records) {
         mRecords = records;
@@ -56,7 +53,7 @@ public class MatchUpAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         vh.mPercent.setText(String.format("%d%%", percent));
 
         //TODO get smaller images
-        //vh.mHeroImage.setImageResource(record.getHeroImageRef());
+        vh.mHeroImage.setImageResource(record.getHeroImageRef());
         vh.data = record;
     }
 
