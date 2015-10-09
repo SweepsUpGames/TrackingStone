@@ -1,14 +1,13 @@
 package com.nothingatall544.trackingstone.matchup;
 
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.daimajia.swipe.SimpleSwipeListener;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.nothingatall544.trackingstone.R;
@@ -16,6 +15,9 @@ import com.nothingatall544.trackingstone.model.MatchUpRecord;
 
 import java.util.List;
 
+/**
+ * TODO re-add the fully open metrics for win/lose
+ */
 public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private SwipeLayout swipeLayout;
@@ -33,8 +35,10 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
     }
 
     private List<MatchUpRecord> mRecords;
+    private Handler mHandler;
 
     public SwipeMatchupAdapter(List<MatchUpRecord> records) {
+        this.mHandler = new Handler();
         this.mRecords = records;
     }
 
@@ -44,7 +48,7 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
                 .inflate(R.layout.swipe_view, parent, false);
 
         final ViewHolder viewHolder = new ViewHolder(view);
-        viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
+        viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.PullOut);
         viewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Left, view.findViewById(R.id.bottom_lose));
         viewHolder.swipeLayout.addDrag(SwipeLayout.DragEdge.Right, view.findViewById(R.id.bottom_win));
         viewHolder.swipeLayout.addSwipeListener(new SwipeLayout.SwipeListener() {
@@ -53,18 +57,21 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
             }
 
             @Override
-            public void onOpen(SwipeLayout layout) {
-                layout.close(true);
+            public void onOpen(final SwipeLayout layout) {
+                mHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        layout.close(true);
+                    }
+                }, 500);
             }
 
             @Override
             public void onStartClose(SwipeLayout layout) {
-                Log.d("TAG", "HERE onStartClose");
             }
 
             @Override
             public void onClose(SwipeLayout layout) {
-                Log.d("TAG", "HERE onClose");
             }
 
             @Override
@@ -73,7 +80,6 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
 
             @Override
             public void onHandRelease(SwipeLayout layout, float xvel, float yvel) {
-                Log.d("TAG", "HERE onHandRelease");
             }
         });
         return viewHolder;

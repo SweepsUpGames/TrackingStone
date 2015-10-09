@@ -41,35 +41,6 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new SwipeMatchupAdapter(this.records);
         recyclerView.setAdapter(adapter);
 
-        swipeToAction = new SwipeToAction(recyclerView, new SwipeToAction.SwipeListener<MatchUpRecord>() {
-            @Override
-            public boolean swipeLeft(final MatchUpRecord itemData) {
-                displaySnackbar(itemData.getDeckName() + " defeated", null, null);
-                itemData.win();
-                adapter.notifyItemChanged(records.indexOf(itemData));
-                return true;
-            }
-
-            @Override
-            public boolean swipeRight(MatchUpRecord itemData) {
-                displaySnackbar(itemData.getDeckName() + " won :(", null, null);
-                itemData.loss();
-                adapter.notifyItemChanged(records.indexOf(itemData));
-                return true;
-            }
-
-            @Override
-            public void onClick(MatchUpRecord itemData) {
-                displaySnackbar(itemData.getDeckName() + " clicked", null, null);
-            }
-
-            @Override
-            public void onLongClick(MatchUpRecord itemData) {
-                displaySnackbar(itemData.getDeckName() + " long clicked", null, null);
-            }
-        });
-
-
         populate();
     }
 
