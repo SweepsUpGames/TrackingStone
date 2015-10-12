@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.RecyclerSwipeAdapter;
 import com.nothingatall544.trackingstone.R;
-import com.nothingatall544.trackingstone.model.MatchUpRecord;
 
 import java.util.List;
 

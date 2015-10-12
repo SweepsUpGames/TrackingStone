@@ -1,4 +1,4 @@
-package com.nothingatall544.trackingstone.model;
+package com.nothingatall544.trackingstone.matchup;
 
 import android.util.Log;
 

@@ -1,4 +1,4 @@
-package com.nothingatall544.trackingstone;
+package com.nothingatall544.trackingstone.matchup;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,13 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.nothingatall544.trackingstone.R;
 import com.nothingatall544.trackingstone.matchup.SwipeMatchupAdapter;
-import com.nothingatall544.trackingstone.model.MatchUpRecord;
+import com.nothingatall544.trackingstone.matchup.MatchUpRecord;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends AppCompatActivity {
+public class MatchupActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     SwipeMatchupAdapter adapter;
