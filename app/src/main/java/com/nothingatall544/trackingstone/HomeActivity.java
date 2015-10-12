@@ -2,7 +2,6 @@ package com.nothingatall544.trackingstone;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,18 +11,14 @@ import android.widget.TextView;
 
 import com.nothingatall544.trackingstone.matchup.SwipeMatchupAdapter;
 import com.nothingatall544.trackingstone.model.MatchUpRecord;
-import com.nothingatall544.trackingstone.view.MatchUpAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import co.dift.ui.SwipeToAction;
 
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     SwipeMatchupAdapter adapter;
-    SwipeToAction swipeToAction;
 
     List<MatchUpRecord> records = new ArrayList<>();
 
@@ -39,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
 
         adapter = new SwipeMatchupAdapter(this.records);
+        recyclerView.getItemAnimator().setSupportsChangeAnimations(false);
         recyclerView.setAdapter(adapter);
 
         populate();

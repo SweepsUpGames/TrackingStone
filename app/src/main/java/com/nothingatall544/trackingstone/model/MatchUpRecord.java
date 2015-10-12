@@ -1,5 +1,7 @@
 package com.nothingatall544.trackingstone.model;
 
+import android.util.Log;
+
 /**
  * Created by derp on 8/29/2015.
  */
@@ -18,10 +20,12 @@ public class MatchUpRecord {
 
     public void win() {
         mWins++;
+        Log.d("TAG", String.format("%s won! %d-%d", mDeckName, mWins, mLoses));
     }
 
     public void loss() {
         mLoses++;
+        Log.d("TAG", String.format("%s lost! %d-%d", mDeckName, mWins, mLoses));
     }
 
     public String getDeckName() {
