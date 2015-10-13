@@ -21,7 +21,7 @@ public class MatchupActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SwipeMatchupAdapter adapter;
 
-    List<MatchUpRecord> records = new ArrayList<>();
+    MatchupModel mModel = new MatchupModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +34,9 @@ public class MatchupActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        adapter = new SwipeMatchupAdapter(this.records);
+        adapter = new SwipeMatchupAdapter(this.mModel.getRecords());
         recyclerView.getItemAnimator().setSupportsChangeAnimations(false);
         recyclerView.setAdapter(adapter);
-
-        populate();
-    }
-
-    private void populate() {
-        this.records.add(new MatchUpRecord("Warrior Control", R.drawable.garrosh_hellscream, 4, 6));
-        this.records.add(new MatchUpRecord("Warrior Control", R.drawable.garrosh_hellscream, 4, 6));
-        this.records.add(new MatchUpRecord("Ramp Druid", R.drawable.malfurion_stormrage, 8, 2));
-        this.records.add(new MatchUpRecord("Ramp Druid", R.drawable.malfurion_stormrage, 8, 2));
     }
 
     private void displaySnackbar(String text, String actionName, View.OnClickListener action) {

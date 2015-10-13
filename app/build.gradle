@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile "com.daimajia.swipelayout:library:1.2.0@aar"
     compile 'co.dift.ui.swipetoaction:library:1.1'
+    compile 'com.google.guava:guava:18.0'
 }
