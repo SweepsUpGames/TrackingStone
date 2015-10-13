@@ -56,8 +56,12 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
 
     private List<MatchUpRecord> mRecords;
 
-    public SwipeMatchupAdapter(List<MatchUpRecord> records) {
+    public SwipeMatchupAdapter() {
+    }
+
+    public void updateRecords(List<MatchUpRecord> records) {
         this.mRecords = records;
+        notifyDataSetChanged();
     }
 
     @Override

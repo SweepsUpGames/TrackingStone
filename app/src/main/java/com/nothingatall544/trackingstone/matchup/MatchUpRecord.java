@@ -2,9 +2,6 @@ package com.nothingatall544.trackingstone.matchup;
 
 import android.util.Log;
 
-/**
- * Created by derp on 8/29/2015.
- */
 public class MatchUpRecord {
     private String mDeckName;
     private int mHeroImageRef;

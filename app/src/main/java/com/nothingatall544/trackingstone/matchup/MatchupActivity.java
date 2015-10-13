@@ -10,11 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.nothingatall544.trackingstone.R;
-import com.nothingatall544.trackingstone.matchup.SwipeMatchupAdapter;
-import com.nothingatall544.trackingstone.matchup.MatchUpRecord;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MatchupActivity extends AppCompatActivity {
 
@@ -30,13 +25,13 @@ public class MatchupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        adapter = new SwipeMatchupAdapter(this.mModel.getRecords());
+        adapter = new SwipeMatchupAdapter();
         recyclerView.getItemAnimator().setSupportsChangeAnimations(false);
         recyclerView.setAdapter(adapter);
+        adapter.updateRecords(mModel.getRecords());
     }
 
     private void displaySnackbar(String text, String actionName, View.OnClickListener action) {
