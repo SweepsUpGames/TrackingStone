@@ -2,6 +2,12 @@ package com.nothingatall544.trackingstone.matchup;
 
 import android.util.Log;
 
+/**
+ * Data that represents a matchup
+ * <p/>
+ * TODO: make immutable
+ * TODO: needs to map against DB
+ */
 public class MatchUpRecord {
     private String mDeckName;
     private int mHeroImageRef;

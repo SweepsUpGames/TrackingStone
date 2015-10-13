@@ -5,6 +5,15 @@ import com.nothingatall544.trackingstone.R;
 
 import java.util.List;
 
+/**
+ * Model to record matups to disk
+ * <p/>
+ * puts the M in MVP
+ * <p/>
+ * TODO: CRUD
+ * TODO: persist to disk
+ * TODO: make async with persistence
+ */
 public class MatchupModel {
     public List<MatchUpRecord> getRecords() {
         return ImmutableList.<MatchUpRecord>builder()

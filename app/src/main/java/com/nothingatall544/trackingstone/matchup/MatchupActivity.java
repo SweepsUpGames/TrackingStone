@@ -11,6 +11,17 @@ import android.widget.TextView;
 
 import com.nothingatall544.trackingstone.R;
 
+/**
+ * Used as a way to display the match up records for a deck
+ * <p/>
+ * Puts the V in MVP
+ * <p/>
+ * TODO: map against deck
+ * TODO: define interface for view
+ * TODO: expose posting notifications
+ * TODO: create 'undo'
+ * TODO: create presenter to control this layer
+ */
 public class MatchupActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;

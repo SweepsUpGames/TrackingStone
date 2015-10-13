@@ -14,6 +14,14 @@ import com.nothingatall544.trackingstone.R;
 
 import java.util.List;
 
+/**
+ * Maps matchups to their view
+ * <p/>
+ * puts the V in MVP?
+ * <p/>
+ * TODO: Pull out controlling logic into a presenter
+ * TODO: define an interface for this
+ */
 public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private SwipeLayout mLayout;
@@ -73,7 +81,6 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
         view.setShowMode(SwipeLayout.ShowMode.LayDown);
         view.addDrag(SwipeLayout.DragEdge.Left, view.findViewById(R.id.bottom_lose));
         view.addDrag(SwipeLayout.DragEdge.Right, view.findViewById(R.id.bottom_win));
-        ;
 
         return new ViewHolder(view);
     }
@@ -148,11 +155,9 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
 
         @Override
         public void onHandRelease(final SwipeLayout layout, float xvel, float yvel) {
-            Log.d("TAG", "onHandRelease " + layout.getDragEdge() + " " + layout.getOpenStatus());
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    layout.close(true);
                     if (layout.getOpenStatus() != SwipeLayout.Status.Open) {
                         return;
                     }
@@ -161,6 +166,7 @@ public class SwipeMatchupAdapter extends RecyclerSwipeAdapter<SwipeMatchupAdapte
                     } else if (layout.getCurrentBottomView().getId() == R.id.bottom_lose) {
                         onLoss();
                     }
+                    layout.close(true);
                 }
             }, 500);
         }
